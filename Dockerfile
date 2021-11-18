@@ -40,7 +40,7 @@ ENV PYTHON_VERSION="3.7.3"
 # Install core packages
 RUN apt-get update
 RUN apt-get install -y build-essential checkinstall software-properties-common llvm cmake wget git nano nasm yasm zip unzip pkg-config \
-    libreadline-gplv2-dev libncursesw5-dev libssl-dev libsqlite3-dev tk-dev libgdbm-dev libc6-dev libbz2-dev mysql-client default-libmysqlclient-dev
+    libncursesw5-dev libssl-dev libsqlite3-dev tk-dev libgdbm-dev libc6-dev libbz2-dev default-libmysqlclient-dev
 #RUN apt-get install python3-dev
 
 # Install Python 3.7.3
