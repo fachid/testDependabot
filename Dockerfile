@@ -34,33 +34,6 @@ RUN apt-get update \
       
 #COPY .pypirc /var/jenkins_home/
 
-ENV DEBIAN_FRONTEND=noninteractive
-ENV PYTHON_VERSION="3.7.3"
-
-
-# Install Python 3.7.3
-RUN wget https://www.python.org/ftp/python/${PYTHON_VERSION}/Python-${PYTHON_VERSION}.tar.xz \
-    && tar xvf Python-${PYTHON_VERSION}.tar.xz \
-    && rm Python-${PYTHON_VERSION}.tar.xz \
-    && cd Python-${PYTHON_VERSION} \
-    && ./configure \
-    && make altinstall \
-    && cd / \
-    && rm -rf Python-${PYTHON_VERSION} \
-    && if [ -e /usr/bin/python3.7 ]; then rm -f /usr/bin/python3.7; fi \
-    && ln -s /usr/local/bin/python3.7 /usr/bin/python3.7 \
-    && if [ -e /usr/bin/pip3.7 ]; then rm -f /usr/bin/pip3.7; fi \
-    && ln -s /usr/local/bin/pip3.7 /usr/bin/pip3.7 \
-    && pip3.7 install --upgrade pip
-
-RUN pip install yq
-RUN curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip"
-RUN unzip awscliv2.zip
-RUN ./aws/install
-
-RUN pip install anchorecli
-
-RUN pip install pytest
 
 
 USER jenkins
