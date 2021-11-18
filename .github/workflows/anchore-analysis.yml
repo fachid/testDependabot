@@ -25,6 +25,7 @@ jobs:
       run: docker build . --file Dockerfile --tag localbuild/testimage:latest
     - name: Run the Anchore scan action itself with GitHub Advanced Security code scanning integration enabled
       uses: anchore/scan-action@main
+      id: scan
       with:
         image: "localbuild/testimage:latest"
         fail-build: false
@@ -33,3 +34,5 @@ jobs:
       uses: github/codeql-action/upload-sarif@v1
       with:
         sarif_file: results.sarif
+    - name: Inspect action SARIF report
+      run: cat ${{ steps.scan.outputs.sarif }}        
