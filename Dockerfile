@@ -31,7 +31,6 @@ RUN apt-get update && apt-get install -y jq
 #setup tools installation (for CI to push python wheel/egs to pfizer repos)
 RUN apt-get update \
       && apt-get install -y python-setuptools
-COPY .pypirc /var/jenkins_home/
 
 ENV DEBIAN_FRONTEND=noninteractive
 ENV PYTHON_VERSION="3.7.3"
