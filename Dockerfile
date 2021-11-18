@@ -37,11 +37,6 @@ RUN apt-get update \
 ENV DEBIAN_FRONTEND=noninteractive
 ENV PYTHON_VERSION="3.7.3"
 
-# Install core packages
-RUN apt-get update
-RUN apt-get install -y build-essential checkinstall software-properties-common llvm cmake wget git nano nasm yasm zip unzip pkg-config \
-    libncursesw5-dev libssl-dev libsqlite3-dev tk-dev libgdbm-dev libc6-dev libbz2-dev default-libmysqlclient-dev
-#RUN apt-get install python3-dev
 
 # Install Python 3.7.3
 RUN wget https://www.python.org/ftp/python/${PYTHON_VERSION}/Python-${PYTHON_VERSION}.tar.xz \
@@ -67,9 +62,5 @@ RUN pip install anchorecli
 
 RUN pip install pytest
 
-RUN curl -sL https://deb.nodesource.com/setup_17.x | sudo bash -
-RUN apt-get install -y nodejs
-RUN apt-get install -y npm
-RUN npm install -g newman
 
 USER jenkins
