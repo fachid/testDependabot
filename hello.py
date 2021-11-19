@@ -11,6 +11,8 @@ import datetime
 @app.route("/")
 def hello():
     print(request.headers)
+    tmp = "a"
+    a=tmp
     return "Hello World!"
 
 
