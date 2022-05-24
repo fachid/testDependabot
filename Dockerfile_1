@@ -1,4 +1,4 @@
-FROM jenkins/jenkins:2.333
+FROM jenkins/jenkins:2.349
 # if we want to install via apt
 
 USER jenkins
