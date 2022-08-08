@@ -1,5 +1,5 @@
 cassandra-driver
-flask==2.0.2
+flask==2.2.2
 flask_restful
 pandas
 flask_cors
